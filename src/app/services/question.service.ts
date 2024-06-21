@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class QuestionService {
 
+  currentQuestionObj:any;
+
   constructor(private http:HttpClient) { }
 
   postQuestion(question:any){
@@ -33,4 +35,31 @@ export class QuestionService {
       )
     })
   }
+
+  getQuestionById(id:string){
+    return new Promise((resolve,reject)=>{
+      this.http.get('http://localhost:3000/questions/' + id).subscribe(
+        (res)=>{
+          resolve(res)
+        },
+        (error)=>{
+          reject(error)
+        }
+      )
+    })
+  }
+
+  updateQuestion(newObj:any){
+    return new Promise((resolve,rej)=>{
+      this.http.put('http://localhost:3000/questions/'+newObj.id,newObj).subscribe(
+        (res)=>{
+          resolve(res)
+        },
+        (error)=>{
+          rej(error)
+        }
+      )
+    })
+  }
+
 }

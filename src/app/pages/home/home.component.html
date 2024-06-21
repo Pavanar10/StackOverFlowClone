@@ -8,7 +8,7 @@
         <button  mat-raised-button [ngClass]="{'post-button':questionStr!==''}" (click)="post()" >Post</button>
       </div>
       {{questionStr}}
-      <mat-card *ngFor="let que of allQuestions" class="question-card">
+      <mat-card *ngFor="let que of allQuestions" class="question-card" [routerLink]="'/solution/' + que.id">
     
         <mat-card-content>
           <p class="username">{{que.username}}</p>

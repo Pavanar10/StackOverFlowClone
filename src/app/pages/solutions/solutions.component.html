@@ -1,0 +1,34 @@
+
+<div class="container">
+    <div class="content-wrapper">
+        <div class="title-container">
+            This is my question, someone please give me an answer.
+        </div>
+      <mat-card class="question-card">
+        <mat-card-content>
+            <div class="solution-container">
+                <div class="arrows-container">
+                    <button   mat-icon-button><mat-icon>expand_less</mat-icon></button>
+                 12
+                    <button  mat-icon-button><mat-icon>expand_more</mat-icon></button>
+                </div>
+                <div class="data-container">
+                    <p class="username">Pavsadsd</p>
+                    <p>
+                    This is my solution
+                    </p>
+                </div>
+            </div>
+
+        </mat-card-content>
+      </mat-card>
+
+      <mat-form-field appearance="fill">
+        <textarea [(ngModel)]="solutionText" matInput cdkTextareaAutosize cdkAutosizeMinRows="5" placeholder="Type your solution..."></textarea>
+      </mat-form-field>
+      <div class="new-post-actions-container">
+        <button (click)="postSolution()" [disabled]="solutionText.trim()===''" mat-raised-button [ngClass]="{'post-button':solutionText!==''}">Post</button>
+      </div>
+    </div>
+  </div>
+  

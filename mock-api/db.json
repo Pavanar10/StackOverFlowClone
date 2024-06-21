@@ -18,7 +18,14 @@
       "id": "3692",
       "username": "Pavana Yadav",
       "question": "This is my first question",
-      "solution": []
+      "solution": [
+        {
+          "username": "Pavana Yadav",
+          "solution": "sadsadsadsa",
+          "upvotes": [],
+          "downvotes": []
+        }
+      ]
     },
     {
       "id": "d608",

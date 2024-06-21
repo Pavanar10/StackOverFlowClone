@@ -15,13 +15,16 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
+import { SolutionsComponent } from './pages/solutions/solutions.component';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
     LoginComponent,
     CreateAccountComponent,
-    HomeComponent
+    HomeComponent,
+    SolutionsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     HttpClientModule,
    MatSnackBarModule,
-   MatCardModule
+   MatCardModule,
+   MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
