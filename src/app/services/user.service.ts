@@ -8,8 +8,9 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 public user:any;
+
   createAccount(userObj:any){
-    return new Promise((resolve,reject)=>{
+    return new Promise<any>((resolve,reject)=>{
       this.http.post('http://localhost:3000/users',userObj).subscribe(
         (response)=>{
           resolve(response)

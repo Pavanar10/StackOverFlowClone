@@ -12,15 +12,17 @@ constructor(public userServcie:UserService,private router:Router){
 
 }
 ngOnInit(): void {
-  this.userServcie.user !==undefined;
-  
+  if(this.userServcie.user === undefined){
     let str= localStorage.getItem('user');
-  
     if(str!==null){
       this.userServcie.user=JSON.parse(str);
     }else{
       this.router.navigate(['/login']);
     }
+  }
+  
+  
+    
   }
 
 logout(){

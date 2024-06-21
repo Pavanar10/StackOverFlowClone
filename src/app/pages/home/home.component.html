@@ -1,1 +1,22 @@
-<p>home works!</p>
+
+<div class="container">
+    <div class="content-wrapper">
+      <mat-form-field appearance="fill">
+        <textarea [(ngModel)]="questionStr"  matInput cdkTextareaAutosize cdkAutosizeMinRows="5" placeholder="Ask your question..."></textarea>
+      </mat-form-field>
+      <div class="new-post-actions-container">
+        <button  mat-raised-button [ngClass]="{'post-button':questionStr!==''}" (click)="post()" >Post</button>
+      </div>
+      {{questionStr}}
+      <mat-card *ngFor="let que of allQuestions" class="question-card">
+    
+        <mat-card-content>
+          <p class="username">{{que.username}}</p>
+          <p>
+            {{que.question}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

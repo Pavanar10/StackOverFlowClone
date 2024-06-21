@@ -13,5 +13,24 @@
       "password": "aaaaaa"
     }
   ],
-  "questions": []
+  "questions": [
+    {
+      "id": "3692",
+      "username": "Pavana Yadav",
+      "question": "This is my first question",
+      "solution": []
+    },
+    {
+      "id": "d608",
+      "username": "Pavana Yadav",
+      "question": "This is my sec question",
+      "solution": []
+    },
+    {
+      "id": "779b",
+      "username": "Pavana Yadav",
+      "question": "This is my third question?",
+      "solution": []
+    }
+  ]
 }
