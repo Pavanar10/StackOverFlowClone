@@ -51,4 +51,41 @@ export class SolutionsComponent {
     })
     .catch((err)=>console.log(err));
   }
+
+  vote(id:number,param:number){
+      if(param===1){
+        //upvote
+
+        if(!(this.questionOnj.solution[id].upvotes.indexOf(this.userService.user.id)>=0)){
+          this.questionOnj.solution[id].upvotes.push(this.userService.user.id) ;
+        }
+
+          for(let i =0;i< this.questionOnj.solution[id].downvotes.length;i++){
+              if(this.questionOnj.solution[id].downvotes[i]===this.userService.user.id){
+                this.questionOnj.solution[id].downvotes.splice(i,1)
+              }
+          }
+
+      }
+      else{
+        
+
+        if(!(this.questionOnj.solution[id].downvotes.indexOf(this.userService.user.id)>=0)){
+          this.questionOnj.solution[id].downvotes.push(this.userService.user.id) 
+        }
+
+          for(let i =0;i< this.questionOnj.solution[id].upvotes.length;i++){
+            if(this.questionOnj.solution[id].upvotes[i]===this.userService.user.id){
+              this.questionOnj.solution[id].upvotes.splice(i,1)
+            }
+        }
+  }
+
+  this.questionService.updateQuestion(this.questionOnj)
+  .then((res)=>{
+    console.log(res)
+  this.solutionText='';
+  })
+  .catch((err)=>console.log(err));
+}
 }

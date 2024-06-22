@@ -1,21 +1,21 @@
 
 <div class="container">
-    <div class="content-wrapper">
+    <div class="content-wrapper" *ngIf="questionOnj!==undefined">
         <div class="title-container">
             This is my question, someone please give me an answer.
         </div>
-      <mat-card class="question-card">
+      <mat-card *ngFor="let sol of questionOnj.solution;let i = index" class="question-card">
         <mat-card-content>
             <div class="solution-container">
                 <div class="arrows-container">
-                    <button   mat-icon-button><mat-icon>expand_less</mat-icon></button>
-                 12
-                    <button  mat-icon-button><mat-icon>expand_more</mat-icon></button>
+                    <button (click)="vote(i,1)"  [ngClass]="{'colored-icon':sol.upvotes.indexOf(userService.user.id)>=0}"  mat-icon-button><mat-icon>expand_less</mat-icon></button>
+                    {{sol.upvotes.length-sol.downvotes.length}}
+                    <button (click)="vote(i,-1)" [ngClass]="{'colored-icon':sol.downvotes.indexOf(userService.user.id)>=0}"  mat-icon-button><mat-icon>expand_more</mat-icon></button>
                 </div>
                 <div class="data-container">
-                    <p class="username">Pavsadsd</p>
+                    <p class="username">{{sol.username}}</p>
                     <p>
-                    This is my solution
+                    {{sol.solution}}
                     </p>
                 </div>
             </div>
