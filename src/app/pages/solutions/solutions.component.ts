@@ -23,6 +23,9 @@ export class SolutionsComponent {
 
   questionOnj:any;
 
+  data=['21-04-2012','11-4-2014','22-2-23','29-11-21','4-5-22'];
+
+
   ngOnInit(){
     this.questionId = this.route.snapshot.paramMap.get('questionid');
       this.questionService.getQuestionById(this.questionId).then(
@@ -31,7 +34,12 @@ export class SolutionsComponent {
           this.questionOnj=res;
         }
       ).catch((error)=>console.log(error))
-  }
+
+      const newData=this.data.sort((a,b)=>{
+        return new Date (a).getTime()-new Date(b).getTime();
+      })
+      console.log(newData)
+    }
 
   postSolution(){
     let solution= {
